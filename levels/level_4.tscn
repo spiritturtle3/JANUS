@@ -6,6 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://bnc6bq5b5qro" path="res://world/Cyberpunk_City_Props.png" id="4_ng40l"]
 [ext_resource type="Texture2D" uid="uid://cn7rrtjqjatve" path="res://world/Cyberpunk_City_Tiles_Fences.png" id="5_04hp8"]
 [ext_resource type="Script" uid="uid://ds6gqv7kslrhx" path="res://camera/pov_camera.gd" id="6_8hlpj"]
+[ext_resource type="Script" uid="uid://ca18ruywghyhx" path="res://levels/level_4_story.gd" id="7_sc6c1"]
+[ext_resource type="Texture2D" uid="uid://b3phkbxh843eo" path="res://choices/level_4/explode.png" id="8_ng40l"]
+[ext_resource type="Texture2D" uid="uid://boxkak1kdgd18" path="res://choices/level_4/no_explode.png" id="9_04hp8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vru0x"]
 texture = ExtResource("3_sc6c1")
@@ -3518,6 +3521,7 @@ texture_filter = 1
 position = Vector2(321, 320)
 
 [node name="Obstructions" type="Node2D" parent="." unique_id=1587874677]
+visible = false
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Obstructions" unique_id=1564039630]
 
@@ -3562,3 +3566,13 @@ shape = SubResource("RectangleShape2D_dija0")
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Obstructions/StaticBody2D2" unique_id=2073755046]
 position = Vector2(376, 442)
 shape = SubResource("RectangleShape2D_dija0")
+
+[node name="GateMarker" type="Marker2D" parent="." unique_id=44358451]
+position = Vector2(320, 150)
+
+[node name="Level4Story" type="Node" parent="." unique_id=1510355767 node_paths=PackedStringArray("gate")]
+script = ExtResource("7_sc6c1")
+gate = NodePath("../GateMarker")
+choice_left_texture = ExtResource("8_ng40l")
+choice_right_texture = ExtResource("9_04hp8")
+main_menu_scene = "uid://d8087p28xifx"

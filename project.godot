@@ -13,6 +13,10 @@ config_version=5
 config/name="JANUS"
 config/features=PackedStringArray("4.7", "Forward Plus")
 
+[autoload]
+
+SceneTransition="*uid://cwdca5qy6ekup"
+
 [display]
 
 window/size/viewport_width=640

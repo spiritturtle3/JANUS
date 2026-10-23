@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://cbxvgg477wb72" path="res://npc/blood.png" id="10_q42ux"]
 [ext_resource type="Texture2D" uid="uid://caxnbdgd48ji7" path="res://choices/level_3/die.png" id="11_wi0qq"]
 [ext_resource type="Texture2D" uid="uid://bf06rrs4bmt6f" path="res://choices/level_3/no_die.png" id="12_s3q8p"]
+[ext_resource type="Script" uid="uid://cu1a0i2nytlft" path="res://levels/level_exit.gd" id="13_q42ux"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vru0x"]
 texture = ExtResource("3_8l0e1")
@@ -2217,6 +2218,12 @@ size = Vector2(433.5, 71)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dija0"]
 size = Vector2(20, 121)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gwceb"]
+size = Vector2(51, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_at1ld"]
+size = Vector2(52, 20)
+
 [node name="Level3" type="Node2D" unique_id=1325772017]
 
 [node name="CameraUI" parent="." unique_id=683564528 instance=ExtResource("1_bmgug")]
@@ -2288,3 +2295,19 @@ dead_texture = ExtResource("9_0unm6")
 blood_texture = ExtResource("10_q42ux")
 choice_left_texture = ExtResource("11_wi0qq")
 choice_right_texture = ExtResource("12_s3q8p")
+
+[node name="LevelExit" type="Area2D" parent="." unique_id=817070941 node_paths=PackedStringArray("blocker")]
+script = ExtResource("13_q42ux")
+next_scene = "uid://dbcrx1vv6pxea"
+starts_locked = true
+blocker = NodePath("../Walls")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelExit" unique_id=248993183]
+position = Vector2(392.5, -10)
+shape = SubResource("RectangleShape2D_gwceb")
+
+[node name="Walls" type="StaticBody2D" parent="." unique_id=504920577]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls" unique_id=952560599]
+position = Vector2(393, -9)
+shape = SubResource("RectangleShape2D_at1ld")

@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://duhq7i2oo6bw0"]
 
 [ext_resource type="PackedScene" uid="uid://bf17uomdewwwv" path="res://camera/camera_ui.tscn" id="1_bmgug"]
+[ext_resource type="Script" uid="uid://dstuqfctg8a6t" path="res://levels/level_3.gd" id="1_q42ux"]
 [ext_resource type="PackedScene" uid="uid://dym1prrguhrp8" path="res://player/player.tscn" id="2_20opy"]
 [ext_resource type="Texture2D" uid="uid://7k64ukujrcei" path="res://world/Cyberpunk_City_Doors_Windows_Signs.png" id="3_8l0e1"]
 [ext_resource type="Texture2D" uid="uid://bnc6bq5b5qro" path="res://world/Cyberpunk_City_Props.png" id="4_8l0e1"]
@@ -2196,6 +2197,7 @@ size = Vector2(433.5, 71)
 size = Vector2(20, 121)
 
 [node name="Level3" type="Node2D" unique_id=1325772017]
+script = ExtResource("1_q42ux")
 
 [node name="CameraUI" parent="." unique_id=683564528 instance=ExtResource("1_bmgug")]
 

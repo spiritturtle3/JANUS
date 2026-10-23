@@ -6697,6 +6697,7 @@ position = Vector2(648, 419)
 shape = SubResource("RectangleShape2D_dija0")
 
 [node name="TutorialUI" type="CanvasLayer" parent="." unique_id=770177669 groups=["tutorial_ui"]]
+visible = false
 script = ExtResource("7_gwceb")
 
 [node name="InstructionPanel" type="Panel" parent="TutorialUI" unique_id=1317430855]

@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cn7rrtjqjatve" path="res://world/Cyberpunk_City_Tiles_Fences.png" id="5_ep78u"]
 [ext_resource type="PackedScene" uid="uid://dy00b2fo6fw5h" path="res://npc/robo_npc.tscn" id="7_ep78u"]
 [ext_resource type="Script" uid="uid://dktueakjj47vk" path="res://levels/level_2_story.gd" id="8_dfjjl"]
+[ext_resource type="Script" uid="uid://cu1a0i2nytlft" path="res://levels/level_exit.gd" id="9_at1ld"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gmgay"]
 texture = ExtResource("3_ilhis")
@@ -10993,6 +10994,12 @@ size = Vector2(640, 20)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dija0"]
 size = Vector2(20, 377)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6iw57"]
+size = Vector2(20, 114.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_28sji"]
+size = Vector2(23.5, 115)
+
 [node name="Level2" type="Node2D" unique_id=1325772017]
 script = ExtResource("1_at1ld")
 
@@ -11047,7 +11054,6 @@ texture_filter = 1
 position = Vector2(17, 101)
 
 [node name="Obstruction" type="Node2D" parent="." unique_id=1429523698]
-visible = false
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Obstruction" unique_id=1686094387]
 
@@ -11079,3 +11085,19 @@ scale = Vector2(0.7, 0.7)
 
 [node name="Level2Story" type="Node" parent="." unique_id=741071513]
 script = ExtResource("8_dfjjl")
+
+[node name="LevelExit" type="Area2D" parent="." unique_id=1188718754 node_paths=PackedStringArray("blocker")]
+script = ExtResource("9_at1ld")
+next_scene = "uid://duhq7i2oo6bw0"
+starts_locked = true
+blocker = NodePath("../Walls")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelExit" unique_id=204735699]
+position = Vector2(649, 196.75)
+shape = SubResource("RectangleShape2D_6iw57")
+
+[node name="Walls" type="StaticBody2D" parent="." unique_id=1274720373]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls" unique_id=736791975]
+position = Vector2(648.25, 196.5)
+shape = SubResource("RectangleShape2D_28sji")

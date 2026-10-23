@@ -7,9 +7,14 @@
 [ext_resource type="Texture2D" uid="uid://cn7rrtjqjatve" path="res://world/Cyberpunk_City_Tiles_Fences.png" id="4_btoec"]
 [ext_resource type="Script" uid="uid://ds6gqv7kslrhx" path="res://camera/pov_camera.gd" id="4_gwceb"]
 [ext_resource type="Texture2D" uid="uid://bnc6bq5b5qro" path="res://world/Cyberpunk_City_Props.png" id="5_gwceb"]
+<<<<<<< HEAD
 [ext_resource type="Script" uid="uid://c3dkimci24s83" path="res://game_manager.gd" id="7_3sk1a"]
 [ext_resource type="Script" uid="uid://dt51i5m7l4lmn" path="res://tutorial_ui.gd" id="7_l53as"]
 [ext_resource type="Shader" uid="uid://vky1l4ofw2uh" path="res://levels/tutorial_blur.gdshader" id="8_l53as"]
+=======
+[ext_resource type="Script" uid="uid://k0xiemc8yixp" path="res://levels/tutorial_ui.gd" id="7_gwceb"]
+[ext_resource type="Script" uid="uid://cu1a0i2nytlft" path="res://levels/level_exit.gd" id="8_l53as"]
+>>>>>>> 6a9225344bc7df2614c6f7d9bc01f08617343fa1
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l53as"]
 texture = ExtResource("3_btoec")
@@ -6625,6 +6630,9 @@ corner_radius_bottom_left = 4
 shadow_color = Color(0.5019608, 0, 0.9607843, 1)
 shadow_size = 8
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_28sji"]
+size = Vector2(82, 91)
+
 [node name="Level1" type="Node2D" unique_id=1325772017]
 script = ExtResource("1_08mmt")
 
@@ -6745,6 +6753,7 @@ text = "W A S D // MOVE"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+<<<<<<< HEAD
 [node name="Label" type="Label" parent="TutorialUI/InstructionPanel/InstructionText" unique_id=2055819259]
 layout_mode = 1
 anchors_preset = -1
@@ -6779,3 +6788,13 @@ theme_override_font_sizes/font_size = 22
 text = "E - CAMERA"
 horizontal_alignment = 1
 vertical_alignment = 1
+=======
+[node name="LevelExit" type="Area2D" parent="." unique_id=2070384198]
+script = ExtResource("8_l53as")
+next_scene = "uid://cl20oto2uvugb"
+starts_locked = null
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelExit" unique_id=1585434815]
+position = Vector2(680, 187.5)
+shape = SubResource("RectangleShape2D_28sji")
+>>>>>>> 6a9225344bc7df2614c6f7d9bc01f08617343fa1

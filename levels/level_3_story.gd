@@ -12,6 +12,7 @@ extends Node
 @onready var pov_camera: Camera2D = get_parent().get_node("POVCamera")
 @onready var camera_ui: CanvasLayer = get_parent().get_node("CameraUI")
 @onready var photo_preview: CanvasLayer = camera_ui.get_node("PhotoPreview")
+@onready var level_exit: Area2D = get_parent().get_node("LevelExit")
 
 var choices_visible: bool = false
 var story_completed: bool = false
@@ -52,7 +53,8 @@ func try_show_choices() -> bool:
 
 	choices_visible = true
 	photo_preview.show_choices(choice_left_texture, choice_right_texture)
-	print("Level 3: Showing choice cards.")
+	level_exit.unlock()
+	print("Level 3: Showing choice cards. Exit unlocked.")
 	return true
 
 

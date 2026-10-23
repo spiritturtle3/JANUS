@@ -20,7 +20,8 @@ Brightness="*uid://lbrp7rwms757"
 GameManager="*uid://c3dkimci24s83"
 PauseManager="*uid://d1evq76ksdpc1"
 LevelTransition="*uid://c1l6lkxebahnf"
-
+SceneTransition="*uid://cwdca5qy6ekup"
+    
 [display]
 
 window/size/viewport_width=640

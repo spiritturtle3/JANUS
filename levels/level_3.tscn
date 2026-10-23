@@ -6,8 +6,14 @@
 [ext_resource type="Texture2D" uid="uid://bnc6bq5b5qro" path="res://world/Cyberpunk_City_Props.png" id="4_8l0e1"]
 [ext_resource type="Script" uid="uid://ds6gqv7kslrhx" path="res://camera/pov_camera.gd" id="4_lfnxh"]
 [ext_resource type="Texture2D" uid="uid://cn7rrtjqjatve" path="res://world/Cyberpunk_City_Tiles_Fences.png" id="5_lfnxh"]
+[ext_resource type="Texture2D" uid="uid://d2mfo7gn7hagq" path="res://npc/alive_female.png" id="7_lfnxh"]
+[ext_resource type="Script" uid="uid://bo32gc05rqi78" path="res://levels/level_3_story.gd" id="8_ofchu"]
+[ext_resource type="Texture2D" uid="uid://bwf1njd2las4c" path="res://npc/dead_female.png" id="9_0unm6"]
+[ext_resource type="Texture2D" uid="uid://cbxvgg477wb72" path="res://npc/blood.png" id="10_q42ux"]
+[ext_resource type="Texture2D" uid="uid://caxnbdgd48ji7" path="res://choices/level_3/die.png" id="11_wi0qq"]
+[ext_resource type="Texture2D" uid="uid://bf06rrs4bmt6f" path="res://choices/level_3/no_die.png" id="12_s3q8p"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gmgay"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vru0x"]
 texture = ExtResource("3_8l0e1")
 0:0/0 = 0
 1:0/0 = 0
@@ -974,7 +980,7 @@ texture = ExtResource("3_8l0e1")
 18:49/0 = 0
 19:49/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ofchu"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5oqfd"]
 texture = ExtResource("4_8l0e1")
 9:0/0 = 0
 10:0/0 = 0
@@ -1572,7 +1578,7 @@ texture = ExtResource("4_8l0e1")
 2:0/size_in_atlas = Vector2i(6, 4)
 2:0/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jq78i"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8mt0c"]
 texture = ExtResource("5_lfnxh")
 0:0/0 = 0
 1:0/0 = 0
@@ -2179,9 +2185,9 @@ texture = ExtResource("5_lfnxh")
 
 [sub_resource type="TileSet" id="TileSet_gxsqa"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_gmgay")
-sources/1 = SubResource("TileSetAtlasSource_ofchu")
-sources/2 = SubResource("TileSetAtlasSource_jq78i")
+sources/0 = SubResource("TileSetAtlasSource_vru0x")
+sources/1 = SubResource("TileSetAtlasSource_5oqfd")
+sources/2 = SubResource("TileSetAtlasSource_8mt0c")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gxsqa"]
 size = Vector2(433.5, 71)
@@ -2250,3 +2256,16 @@ shape = SubResource("RectangleShape2D_dija0")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Obstructions/StaticBody2D2" unique_id=792645020]
 position = Vector2(-10, 93)
 shape = SubResource("RectangleShape2D_dija0")
+
+[node name="Woman" type="Sprite2D" parent="." unique_id=2068461624]
+position = Vector2(369, 183)
+scale = Vector2(0.03, 0.03)
+texture = ExtResource("7_lfnxh")
+
+[node name="Level3Story" type="Node" parent="." unique_id=1231893474 node_paths=PackedStringArray("woman")]
+script = ExtResource("8_ofchu")
+woman = NodePath("../Woman")
+dead_texture = ExtResource("9_0unm6")
+blood_texture = ExtResource("10_q42ux")
+choice_left_texture = ExtResource("11_wi0qq")
+choice_right_texture = ExtResource("12_s3q8p")

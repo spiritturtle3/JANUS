@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://dy00b2fo6fw5h"]
 
+[ext_resource type="Script" uid="uid://b1lvl7bsjsrxv" path="res://npc/robo_npc.gd" id="1_a0isy"]
 [ext_resource type="Texture2D" uid="uid://crw4ixcslk5uy" path="res://npc/Cyberpunk_City_Character_02.png" id="1_ucdhl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a0isy"]
@@ -25,6 +26,18 @@ region = Rect2(32, 128, 32, 64)
 [sub_resource type="AtlasTexture" id="AtlasTexture_monr5"]
 atlas = ExtResource("1_ucdhl")
 region = Rect2(64, 128, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8s1xt"]
+atlas = ExtResource("1_ucdhl")
+region = Rect2(0, 192, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q1x1w"]
+atlas = ExtResource("1_ucdhl")
+region = Rect2(32, 192, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b4ktn"]
+atlas = ExtResource("1_ucdhl")
+region = Rect2(64, 192, 32, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dija0"]
 animations = [{
@@ -55,16 +68,32 @@ animations = [{
 "loop": 1,
 "name": &"right",
 "speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8s1xt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q1x1w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b4ktn")
+}],
+"loop": 1,
+"name": &"up",
+"speed": 5.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gxsqa"]
 
 [node name="RoboNPC" type="CharacterBody2D" unique_id=142134959]
+script = ExtResource("1_a0isy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=674018017]
 sprite_frames = SubResource("SpriteFrames_dija0")
-animation = &"right"
-frame_progress = 0.93310195
+animation = &"up"
+frame = 2
+frame_progress = 0.9993357
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=327866436]
 position = Vector2(1, 13)

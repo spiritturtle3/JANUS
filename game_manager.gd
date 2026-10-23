@@ -3,6 +3,7 @@ var tutorial_shown: bool = false
 
 const SAVE_PATH := "user://save.cfg"
 const MAIN_MENU_SCENE := "res://ui/main_menu.tscn"
+const INTRO_SCENE := "res://cutscenes/cutscene_intro.tscn"
 
 # Add every new level to this list, in order.
 
@@ -17,7 +18,11 @@ func has_save() -> bool:
 	return FileAccess.file_exists(SAVE_PATH)
 
 func new_game() -> void:
-	load_level(0)
+	StoryMemory.reset()  # forget choices from any previous run
+	current_level_index = 0
+	save_game()
+	get_tree().paused = false
+	get_tree().change_scene_to_file(INTRO_SCENE)
 
 func continue_game() -> void:
 	var cfg := ConfigFile.new()

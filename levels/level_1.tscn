@@ -6,7 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://cn7rrtjqjatve" path="res://world/Cyberpunk_City_Tiles_Fences.png" id="4_btoec"]
 [ext_resource type="Script" uid="uid://ds6gqv7kslrhx" path="res://camera/pov_camera.gd" id="4_gwceb"]
 [ext_resource type="Texture2D" uid="uid://bnc6bq5b5qro" path="res://world/Cyberpunk_City_Props.png" id="5_gwceb"]
-[ext_resource type="Script" uid="uid://k0xiemc8yixp" path="res://levels/tutorial_ui.gd" id="7_gwceb"]
+[ext_resource type="Script" uid="uid://c3dkimci24s83" path="res://game_manager.gd" id="7_3sk1a"]
+[ext_resource type="Script" uid="uid://dt51i5m7l4lmn" path="res://tutorial_ui.gd" id="7_l53as"]
+[ext_resource type="Shader" uid="uid://vky1l4ofw2uh" path="res://levels/tutorial_blur.gdshader" id="8_l53as"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l53as"]
 texture = ExtResource("3_btoec")
@@ -6603,13 +6605,18 @@ size = Vector2(661.5, 6.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dija0"]
 size = Vector2(14, 377)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k56px"]
+shader = ExtResource("8_l53as")
+shader_parameter/blur_amount = 2.5
+shader_parameter/dim_amount = 0.45
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gxsqa"]
-bg_color = Color(0.8, 0.03137255, 0.05882353, 0.10980392)
+bg_color = Color(0.039215688, 0.039215688, 0.101960786, 1)
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
-border_color = Color(0, 0.9607843, 1, 1)
+border_color = Color(0, 0.9411765, 1, 1)
 corner_radius_top_left = 4
 corner_radius_top_right = 4
 corner_radius_bottom_right = 4
@@ -6667,6 +6674,7 @@ tile_set = SubResource("TileSet_gxsqa")
 [node name="TileMapLayer2" type="TileMapLayer" parent="Props" unique_id=37883977]
 tile_map_data = PackedByteArray("AAD2//n/AAAAAAAAAAD2//r/AAAAAAEAAAD2//v/AAAAAAIAAAD2//z/AAAAAAMAAAD3//n/AAABAAAAAAD3//r/AAABAAEAAAD3//v/AAABAAIAAAD3//z/AAABAAMAAAD4//n/AAACAAAAAAD4//r/AAACAAEAAAD4//v/AAACAAIAAAD4//z/AAACAAMAAAD5//n/AAADAAAAAAD5//r/AAADAAEAAAD5//v/AAADAAIAAAD5//z/AAADAAMAAAD6//j/AQAQAAIAAAD6//n/AQAQAAMAAAD7//j/AQARAAIAAAD7//n/AQARAAMAAAD8//j/AQASAAIAAAD8//n/AQASAAMAAAD9//j/AQATAAIAAAD9//n/AQATAAMAAAAAAPn/AQACAAAAAAAAAPr/AQACAAEAAAAAAPv/AQAOAAUAAAAAAPz/AQAOAAYAAAABAPn/AQADAAAAAAABAPr/AQADAAEAAAABAPv/AQAPAAUAAAABAPz/AQAPAAYAAAACAPn/AQAEAAAAAAACAPr/AQAEAAEAAAACAPv/AQAEAAIAAAACAPz/AQAEAAMAAAADAPn/AQAFAAAAAAADAPr/AQAFAAEAAAADAPv/AQAFAAIAAAADAPz/AQAEAAgAAAAEAPn/AQAGAAAAAAAEAPr/AQAGAAEAAAAEAPz/AQAFAAgAAAAFAPn/AQAHAAAAAAAFAPr/AQAHAAEAAAD+//z/AQAMAAYAAAD///v/AQANAAUAAAD///z/AQANAAYAAAADAP3/AQAEAAkAAAAEAP3/AQAFAAkAAAAPAPr/AQAOABQAAAAPAPv/AQAOABUAAAAPAPz/AQAOABYAAAAPAP3/AQAOABcAAAAQAPr/AQAPABQAAAAQAPv/AQAPABUAAAAQAPz/AQAPABYAAAAQAP3/AQAPABcAAAAPAPj/AQAQABIAAAAPAPn/AQAQABMAAAAQAPj/AQARABIAAAAQAPn/AQARABMAAAA=")
 tile_set = SubResource("TileSet_gxsqa")
+script = ExtResource("7_3sk1a")
 
 [node name="WalkConstraints" type="Node2D" parent="." unique_id=1282944466]
 
@@ -6697,14 +6705,22 @@ position = Vector2(648, 419)
 shape = SubResource("RectangleShape2D_dija0")
 
 [node name="TutorialUI" type="CanvasLayer" parent="." unique_id=770177669 groups=["tutorial_ui"]]
-visible = false
-script = ExtResource("7_gwceb")
+script = ExtResource("7_l53as")
+
+[node name="dim" type="ColorRect" parent="TutorialUI" unique_id=61610943]
+material = SubResource("ShaderMaterial_k56px")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0.0627451, 1)
 
 [node name="InstructionPanel" type="Panel" parent="TutorialUI" unique_id=1317430855]
-offset_left = 160.0
-offset_top = 270.0
-offset_right = 480.0
-offset_bottom = 330.0
+offset_left = 143.0
+offset_top = 50.0
+offset_right = 493.0
+offset_bottom = 299.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_gxsqa")
 
 [node name="InstructionText" type="Label" parent="TutorialUI/InstructionPanel" unique_id=24877496]
@@ -6712,15 +6728,52 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 12.0
-offset_top = 8.0
-offset_right = -12.0
-offset_bottom = -8.0
+offset_left = 33.0
+offset_top = 15.0
+offset_right = -25.0
+offset_bottom = -151.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(0, 0.9607843, 1, 1)
+theme_override_colors/font_color = Color(0, 0.9411765, 1, 1)
 theme_override_colors/font_shadow_color = Color(0.5019608, 0, 0.9607843, 1)
-theme_override_font_sizes/font_size = 18
+theme_override_colors/font_outline_color = Color(1, 0, 0.6666667, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 22
 text = "W A S D // MOVE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="TutorialUI/InstructionPanel/InstructionText" unique_id=2055819259]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.44900003
+anchor_top = 2.003
+anchor_right = 0.44900003
+anchor_bottom = 2.003
+offset_left = -98.108
+offset_top = -49.24901
+offset_right = 120.892
+offset_bottom = 38.75099
+theme_override_colors/font_color = Color(0, 0.9411765, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.48546147, 0.0001895389, 0.49401575, 1)
+theme_override_colors/font_outline_color = Color(1, 0, 0.6666667, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 22
+text = "LMB - CAPTURE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="TutorialUI/InstructionPanel" unique_id=1447188892]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 78.0
+offset_right = 319.0
+offset_bottom = 142.0
+theme_override_colors/font_color = Color(0, 0.9411765, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.53695893, 0.0033027802, 0.48971325, 1)
+theme_override_colors/font_outline_color = Color(1, 0, 0.6666667, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 22
+text = "E - CAMERA"
 horizontal_alignment = 1
 vertical_alignment = 1

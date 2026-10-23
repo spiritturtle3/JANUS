@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://d8087p28xifx"]
 
 [ext_resource type="Texture2D" uid="uid://cdu4mvig3cu8a" path="res://ui/assets/Start_Menu.png" id="1_t7e0r"]
+[ext_resource type="Script" uid="uid://d346jam50t4vx" path="res://ui/main_menu.gd" id="1_wk0pr"]
 [ext_resource type="Script" uid="uid://dkarxuneym180" path="res://ui/menu_container.gd" id="2_0dkrt"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gxsqa"]
@@ -20,6 +21,7 @@ border_width_left = 2
 border_color = Color(0, 0.8980392, 1, 1)
 
 [node name="MainMenu" type="Node2D" unique_id=341142532]
+script = ExtResource("1_wk0pr")
 
 [node name="Background" type="TextureRect" parent="." unique_id=573740991]
 offset_right = 640.0

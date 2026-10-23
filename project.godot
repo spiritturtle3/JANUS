@@ -11,7 +11,14 @@ config_version=5
 [application]
 
 config/name="JANUS"
+run/main_scene="uid://d8087p28xifx"
 config/features=PackedStringArray("4.7", "Forward Plus")
+
+[autoload]
+
+Brightness="*uid://lbrp7rwms757"
+GameManager="*uid://c3dkimci24s83"
+PauseManager="*uid://d1evq76ksdpc1"
 
 [display]
 

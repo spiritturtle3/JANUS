@@ -1,0 +1,86 @@
+[gd_scene format=3 uid="uid://d8087p28xifx"]
+
+[ext_resource type="Texture2D" uid="uid://cdu4mvig3cu8a" path="res://ui/assets/Start_Menu.png" id="1_t7e0r"]
+[ext_resource type="Script" uid="uid://dkarxuneym180" path="res://ui/menu_container.gd" id="2_0dkrt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gxsqa"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dija0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t7e0r"]
+bg_color = Color(0.02745098, 0.078431375, 0.14901961, 0.8)
+border_width_left = 2
+border_color = Color(0, 0.8980392, 1, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6iw57"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0dkrt"]
+draw_center = false
+border_width_left = 2
+border_color = Color(0, 0.8980392, 1, 1)
+
+[node name="MainMenu" type="Node2D" unique_id=341142532]
+
+[node name="Background" type="TextureRect" parent="." unique_id=573740991]
+offset_right = 640.0
+offset_bottom = 360.0
+texture = ExtResource("1_t7e0r")
+expand_mode = 1
+
+[node name="MenuContainer" type="VBoxContainer" parent="." unique_id=1085072924]
+offset_left = 74.0
+offset_top = 91.0
+offset_right = 224.0
+offset_bottom = 216.0
+theme_override_constants/separation = 2
+script = ExtResource("2_0dkrt")
+
+[node name="ContinueButton" type="Button" parent="MenuContainer" unique_id=1629354228]
+custom_minimum_size = Vector2(150, 24)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_gxsqa")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_dija0")
+theme_override_styles/hover = SubResource("StyleBoxFlat_t7e0r")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_6iw57")
+theme_override_styles/focus = SubResource("StyleBoxFlat_0dkrt")
+text = "CONTINUE"
+
+[node name="NewGameButton" type="Button" parent="MenuContainer" unique_id=51024962]
+custom_minimum_size = Vector2(150, 24)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_gxsqa")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_dija0")
+theme_override_styles/hover = SubResource("StyleBoxFlat_t7e0r")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_6iw57")
+theme_override_styles/focus = SubResource("StyleBoxFlat_0dkrt")
+text = "NEW GAME"
+
+[node name="LoadGameButton" type="Button" parent="MenuContainer" unique_id=1924361646]
+custom_minimum_size = Vector2(150, 24)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_gxsqa")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_dija0")
+theme_override_styles/hover = SubResource("StyleBoxFlat_t7e0r")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_6iw57")
+theme_override_styles/focus = SubResource("StyleBoxFlat_0dkrt")
+text = "LOAD GAME"
+
+[node name="SettingsButton" type="Button" parent="MenuContainer" unique_id=1254163463]
+custom_minimum_size = Vector2(150, 24)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_gxsqa")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_dija0")
+theme_override_styles/hover = SubResource("StyleBoxFlat_t7e0r")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_6iw57")
+theme_override_styles/focus = SubResource("StyleBoxFlat_0dkrt")
+text = "SETTINGS"
+
+[node name="QuitButton" type="Button" parent="MenuContainer" unique_id=766174021]
+custom_minimum_size = Vector2(150, 24)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_gxsqa")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_dija0")
+theme_override_styles/hover = SubResource("StyleBoxFlat_t7e0r")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_6iw57")
+theme_override_styles/focus = SubResource("StyleBoxFlat_0dkrt")
+text = "QUIT"

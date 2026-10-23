@@ -6617,7 +6617,7 @@ corner_radius_bottom_left = 4
 shadow_color = Color(0.5019608, 0, 0.9607843, 1)
 shadow_size = 8
 
-[node name="TestLevel" type="Node2D" unique_id=1325772017]
+[node name="Level1" type="Node2D" unique_id=1325772017]
 
 [node name="CameraUI" parent="." unique_id=683564528 instance=ExtResource("1_kx6l7")]
 

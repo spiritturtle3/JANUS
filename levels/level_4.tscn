@@ -9,6 +9,11 @@
 [ext_resource type="Script" uid="uid://ca18ruywghyhx" path="res://levels/level_4_story.gd" id="7_sc6c1"]
 [ext_resource type="Texture2D" uid="uid://b3phkbxh843eo" path="res://choices/level_4/explode.png" id="8_ng40l"]
 [ext_resource type="Texture2D" uid="uid://boxkak1kdgd18" path="res://choices/level_4/no_explode.png" id="9_04hp8"]
+[ext_resource type="Script" uid="uid://bbs7b6m2gyo2b" path="res://cutscenes/cutscene_slide.gd" id="10_vru0x"]
+[ext_resource type="Texture2D" uid="uid://ckrnkbums027w" path="res://cutscenes/4.png" id="11_5oqfd"]
+[ext_resource type="Texture2D" uid="uid://csba60qqljkye" path="res://cutscenes/4.2.png" id="12_8mt0c"]
+[ext_resource type="Texture2D" uid="uid://d23eenr2bu2i3" path="res://cutscenes/4.22.png" id="13_dp2yl"]
+[ext_resource type="Texture2D" uid="uid://d2hol4civfkyh" path="res://cutscenes/4.1.png" id="14_a7qdg"]
 
 [sub_resource type="GDScript" id="GDScript_sc6c1"]
 script/source = "extends Node2D
@@ -3489,6 +3494,43 @@ size = Vector2(289, 20)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dija0"]
 size = Vector2(16, 280)
 
+[sub_resource type="Resource" id="Resource_sc6c1"]
+script = ExtResource("10_vru0x")
+texture = ExtResource("11_5oqfd")
+duration = 4.0
+if_level = 4
+metadata/_custom_type_script = "uid://bbs7b6m2gyo2b"
+
+[sub_resource type="Resource" id="Resource_ng40l"]
+script = ExtResource("10_vru0x")
+texture = ExtResource("12_8mt0c")
+duration = 4.0
+if_level = 4
+metadata/_custom_type_script = "uid://bbs7b6m2gyo2b"
+
+[sub_resource type="Resource" id="Resource_04hp8"]
+script = ExtResource("10_vru0x")
+texture = ExtResource("13_dp2yl")
+duration = 4.0
+if_level = 4
+metadata/_custom_type_script = "uid://bbs7b6m2gyo2b"
+
+[sub_resource type="Resource" id="Resource_8hlpj"]
+script = ExtResource("10_vru0x")
+texture = ExtResource("14_a7qdg")
+duration = 4.0
+if_level = 4
+if_choice = 1
+metadata/_custom_type_script = "uid://bbs7b6m2gyo2b"
+
+[sub_resource type="Resource" id="Resource_qhnv2"]
+script = ExtResource("10_vru0x")
+texture = ExtResource("11_5oqfd")
+duration = 4.0
+if_level = 4
+if_choice = 1
+metadata/_custom_type_script = "uid://bbs7b6m2gyo2b"
+
 [node name="Level4" type="Node2D" unique_id=1325772017]
 script = SubResource("GDScript_sc6c1")
 
@@ -3585,3 +3627,4 @@ gate = NodePath("../GateMarker")
 choice_left_texture = ExtResource("8_ng40l")
 choice_right_texture = ExtResource("9_04hp8")
 main_menu_scene = "uid://d8087p28xifx"
+after_choice_slides = Array[ExtResource("10_vru0x")]([SubResource("Resource_sc6c1"), SubResource("Resource_ng40l"), SubResource("Resource_04hp8"), SubResource("Resource_8hlpj"), SubResource("Resource_qhnv2")])

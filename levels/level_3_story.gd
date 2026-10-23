@@ -8,6 +8,7 @@ extends Node
 @export var dead_rotation_degrees: float = 0.0
 @export var dead_scale_multiplier: float = 1.0
 @export var blood_scale_multiplier: float = 1.0
+@export var after_choice_slides: Array[CutsceneSlide] = []  # plays after the player picks
 
 @onready var pov_camera: Camera2D = get_parent().get_node("POVCamera")
 @onready var camera_ui: CanvasLayer = get_parent().get_node("CameraUI")
@@ -59,9 +60,12 @@ func try_show_choices() -> bool:
 
 
 func on_choice_selected(index: int) -> void:
+	StoryMemory.set_choice(3, index)
 	choices_visible = false
 	story_completed = true
 	print("Level 3: Choice selected: ", index)
+	
+	await CutscenePlayer.play(after_choice_slides)
 
 	var original_scale: Vector2 = woman.scale
 

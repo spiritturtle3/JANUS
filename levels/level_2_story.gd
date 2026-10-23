@@ -1,6 +1,8 @@
 extends Node
 
 @export var beyond_sludge_x: float = 275.0
+@export var intro_slides: Array[CutsceneSlide] = []         # plays when the level starts
+@export var after_choice_slides: Array[CutsceneSlide] = []  # plays after the player picks
 
 @onready var robot: CharacterBody2D = get_parent().get_node("RoboNPC")
 @onready var robot_sprite: AnimatedSprite2D = robot.get_node("AnimatedSprite2D")
@@ -19,6 +21,8 @@ var no_fall_texture: Texture2D = preload("res://choices/level_2/no_fall.png")
 func _ready() -> void:
 	add_to_group("level_story")
 	print("Level 2 story controller ready.")
+	await get_tree().process_frame  # let the rest of the level finish loading
+	await CutscenePlayer.play(intro_slides)
 
 
 func is_robot_in_photo() -> bool:
@@ -52,9 +56,12 @@ func try_show_choices() -> bool:
 
 
 func on_choice_selected(index: int) -> void:
+	StoryMemory.set_choice(2, index)
 	choices_visible = false
 	story_completed = true
 	print("Level 2: Choice selected: ", index)
+
+	await CutscenePlayer.play(after_choice_slides)
 
 	robot.global_position.x = beyond_sludge_x
 	robot_sprite.play("up")

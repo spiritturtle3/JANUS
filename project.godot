@@ -21,6 +21,8 @@ GameManager="*uid://c3dkimci24s83"
 PauseManager="*uid://d1evq76ksdpc1"
 SceneTransition="*uid://cwdca5qy6ekup"
 LevelTransition="*res://level_transition.gd"
+StoryMemory="*uid://cs6cntg3ipakq"
+CutscenePlayer="*uid://b5aeue1fcfwhn"
 
 [display]
 

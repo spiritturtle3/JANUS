@@ -10,6 +10,10 @@
 [ext_resource type="PackedScene" uid="uid://dy00b2fo6fw5h" path="res://npc/robo_npc.tscn" id="7_ep78u"]
 [ext_resource type="Script" uid="uid://dktueakjj47vk" path="res://levels/level_2_story.gd" id="8_dfjjl"]
 [ext_resource type="Script" uid="uid://cu1a0i2nytlft" path="res://levels/level_exit.gd" id="9_at1ld"]
+[ext_resource type="Script" uid="uid://bbs7b6m2gyo2b" path="res://cutscenes/cutscene_slide.gd" id="9_vm7no"]
+[ext_resource type="Texture2D" uid="uid://dtpdxu7i6vmua" path="res://cutscenes/2.png" id="10_hbb88"]
+[ext_resource type="Texture2D" uid="uid://di56ek3bosqqa" path="res://cutscenes/2.1.png" id="11_wcjpl"]
+[ext_resource type="Texture2D" uid="uid://wl3qoaxpqjum" path="res://cutscenes/2.2.png" id="12_5orea"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gmgay"]
 texture = ExtResource("3_ilhis")
@@ -10994,6 +10998,27 @@ size = Vector2(640, 20)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dija0"]
 size = Vector2(20, 377)
 
+[sub_resource type="Resource" id="Resource_at1ld"]
+script = ExtResource("9_vm7no")
+texture = ExtResource("10_hbb88")
+duration = 4.0
+metadata/_custom_type_script = "uid://bbs7b6m2gyo2b"
+
+[sub_resource type="Resource" id="Resource_wcjpl"]
+script = ExtResource("9_vm7no")
+texture = ExtResource("11_wcjpl")
+duration = 4.0
+if_level = 2
+metadata/_custom_type_script = "uid://bbs7b6m2gyo2b"
+
+[sub_resource type="Resource" id="Resource_5orea"]
+script = ExtResource("9_vm7no")
+texture = ExtResource("12_5orea")
+duration = 4.0
+if_level = 2
+if_choice = 1
+metadata/_custom_type_script = "uid://bbs7b6m2gyo2b"
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6iw57"]
 size = Vector2(20, 114.5)
 
@@ -11085,6 +11110,8 @@ scale = Vector2(0.7, 0.7)
 
 [node name="Level2Story" type="Node" parent="." unique_id=741071513]
 script = ExtResource("8_dfjjl")
+intro_slides = Array[ExtResource("9_vm7no")]([SubResource("Resource_at1ld")])
+after_choice_slides = Array[ExtResource("9_vm7no")]([SubResource("Resource_wcjpl"), SubResource("Resource_5orea")])
 
 [node name="LevelExit" type="Area2D" parent="." unique_id=1188718754 node_paths=PackedStringArray("blocker")]
 script = ExtResource("9_at1ld")

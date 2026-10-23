@@ -4,6 +4,7 @@ extends Node
 @export var choice_left_texture: Texture2D
 @export var choice_right_texture: Texture2D
 @export_file("*.tscn") var main_menu_scene: String = ""
+@export var after_choice_slides: Array[CutsceneSlide] = []  # plays after the player picks
 
 @onready var pov_camera: Camera2D = get_parent().get_node("POVCamera")
 @onready var camera_ui: CanvasLayer = get_parent().get_node("CameraUI")
@@ -42,9 +43,12 @@ func try_show_choices() -> bool:
 
 
 func on_choice_selected(index: int) -> void:
+	StoryMemory.set_choice(4, index)
 	choices_visible = false
 	story_completed = true
 	print("Level 4: Choice selected: ", index)
+
+	await CutscenePlayer.play(after_choice_slides)
 
 	if main_menu_scene == "":
 		print("Level 4: Main menu not linked yet.")

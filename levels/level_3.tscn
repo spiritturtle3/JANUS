@@ -14,6 +14,8 @@
 [ext_resource type="Texture2D" uid="uid://caxnbdgd48ji7" path="res://choices/level_3/die.png" id="11_wi0qq"]
 [ext_resource type="Texture2D" uid="uid://bf06rrs4bmt6f" path="res://choices/level_3/no_die.png" id="12_s3q8p"]
 [ext_resource type="Script" uid="uid://cu1a0i2nytlft" path="res://levels/level_exit.gd" id="13_q42ux"]
+[ext_resource type="Script" uid="uid://bbs7b6m2gyo2b" path="res://cutscenes/cutscene_slide.gd" id="13_s3q8p"]
+[ext_resource type="Texture2D" uid="uid://6ne2vgiaee2e" path="res://cutscenes/3.png" id="14_u4kh1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vru0x"]
 texture = ExtResource("3_8l0e1")
@@ -2197,6 +2199,21 @@ size = Vector2(433.5, 71)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dija0"]
 size = Vector2(20, 121)
 
+[sub_resource type="Resource" id="Resource_q42ux"]
+script = ExtResource("13_s3q8p")
+texture = ExtResource("14_u4kh1")
+duration = 4.0
+if_level = 3
+metadata/_custom_type_script = "uid://bbs7b6m2gyo2b"
+
+[sub_resource type="Resource" id="Resource_s3q8p"]
+script = ExtResource("13_s3q8p")
+texture = ExtResource("14_u4kh1")
+duration = 4.0
+if_level = 3
+if_choice = 1
+metadata/_custom_type_script = "uid://bbs7b6m2gyo2b"
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gwceb"]
 size = Vector2(51, 20)
 
@@ -2278,6 +2295,7 @@ dead_texture = ExtResource("9_0unm6")
 blood_texture = ExtResource("10_q42ux")
 choice_left_texture = ExtResource("11_wi0qq")
 choice_right_texture = ExtResource("12_s3q8p")
+after_choice_slides = Array[ExtResource("13_s3q8p")]([SubResource("Resource_q42ux"), SubResource("Resource_s3q8p")])
 
 [node name="LevelExit" type="Area2D" parent="." unique_id=817070941 node_paths=PackedStringArray("blocker")]
 script = ExtResource("13_q42ux")

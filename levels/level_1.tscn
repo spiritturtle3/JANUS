@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://dfailqqt467h2"]
 
-[ext_resource type="Script" uid="uid://b5mllnyk7bso8" path="res://levels/level_1.gd" id="1_08mmt"]
+[ext_resource type="Script" uid="uid://c6vv4a08i18qj" path="res://levels/level_1.gd" id="1_08mmt"]
 [ext_resource type="PackedScene" uid="uid://bf17uomdewwwv" path="res://camera/camera_ui.tscn" id="1_kx6l7"]
 [ext_resource type="PackedScene" uid="uid://dym1prrguhrp8" path="res://player/player.tscn" id="2_n46q3"]
 [ext_resource type="Texture2D" uid="uid://7k64ukujrcei" path="res://world/Cyberpunk_City_Doors_Windows_Signs.png" id="3_btoec"]
@@ -9,8 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://bnc6bq5b5qro" path="res://world/Cyberpunk_City_Props.png" id="5_gwceb"]
 [ext_resource type="Script" uid="uid://c3dkimci24s83" path="res://game_manager.gd" id="7_3sk1a"]
 [ext_resource type="Script" uid="uid://dt51i5m7l4lmn" path="res://tutorial_ui.gd" id="7_l53as"]
-[ext_resource type="Shader" uid="uid://vky1l4ofw2uh" path="res://levels/tutorial_blur.gdshader" id="8_l53as"]
-[ext_resource type="Script" uid="uid://k0xiemc8yixp" path="res://levels/tutorial_ui.gd" id="7_gwceb"]
 [ext_resource type="Script" uid="uid://cu1a0i2nytlft" path="res://levels/level_exit.gd" id="8_l53as"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l53as"]
@@ -6609,9 +6607,6 @@ size = Vector2(661.5, 6.5)
 size = Vector2(14, 377)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_k56px"]
-shader = ExtResource("8_l53as")
-shader_parameter/blur_amount = 2.5
-shader_parameter/dim_amount = 0.45
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gxsqa"]
 bg_color = Color(0.039215688, 0.039215688, 0.101960786, 1)
@@ -6784,6 +6779,7 @@ theme_override_font_sizes/font_size = 22
 text = "E - CAMERA"
 horizontal_alignment = 1
 vertical_alignment = 1
+
 [node name="LevelExit" type="Area2D" parent="." unique_id=2070384198]
 script = ExtResource("8_l53as")
 next_scene = "uid://cl20oto2uvugb"

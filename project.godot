@@ -23,6 +23,7 @@ SceneTransition="*uid://cwdca5qy6ekup"
 LevelTransition="*res://level_transition.gd"
 StoryMemory="*uid://cs6cntg3ipakq"
 CutscenePlayer="*uid://b5aeue1fcfwhn"
+MusicPlayer="*uid://dmi8fei5ag2wa"
 
 [display]
 

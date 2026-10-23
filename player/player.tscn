@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://b7jxoqwe3at2v" path="res://player/sprites/_up walk.png" id="7_urp6f"]
 [ext_resource type="PackedScene" uid="uid://crdesj3r1b5os" path="res://camera/camera.tscn" id="8_dw050"]
 [ext_resource type="Script" uid="uid://dl74m8lyxbxa3" path="res://player/main_camera.gd" id="9_hg6s5"]
+[ext_resource type="AudioStream" uid="uid://cckctm85n42db" path="res://audio/footsteps.mp3" id="10_8t03j"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bwjto"]
 atlas = ExtResource("2_dw050")
@@ -389,3 +390,6 @@ limit_top = 0
 limit_right = 640
 limit_bottom = 360
 script = ExtResource("9_hg6s5")
+
+[node name="Footsteps" type="AudioStreamPlayer2D" parent="." unique_id=1372339816]
+stream = ExtResource("10_8t03j")

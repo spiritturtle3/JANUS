@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://bf17uomdewwwv"]
+
+[ext_resource type="Texture2D" uid="uid://byw63j612emph" path="res://camera/camera_assets/lens.png" id="1_kogah"]
+[ext_resource type="Script" uid="uid://c8fbi0vmytx06" path="res://camera/camera_ui.gd" id="1_w3spk"]
+[ext_resource type="Texture2D" uid="uid://bp3ck8har8fk5" path="res://camera/camera_assets/dark_overlay.png" id="3_w3spk"]
+[ext_resource type="PackedScene" uid="uid://dp1to3rpc7bm0" path="res://camera/photo_preview.tscn" id="4_8bo8s"]
+
+[node name="CameraUI" type="CanvasLayer" unique_id=279683516]
+script = ExtResource("1_w3spk")
+
+[node name="DarkOverlay" type="TextureRect" parent="." unique_id=949690849]
+visible = false
+z_index = 10
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_w3spk")
+expand_mode = 1
+
+[node name="LensRing" type="TextureRect" parent="." unique_id=1263137347]
+visible = false
+z_index = 11
+offset_left = 168.0
+offset_top = 24.0
+offset_right = 472.09308
+offset_bottom = 324.0
+texture = ExtResource("1_kogah")
+expand_mode = 3
+
+[node name="PhotoPreview" parent="." unique_id=1010765872 instance=ExtResource("4_8bo8s")]

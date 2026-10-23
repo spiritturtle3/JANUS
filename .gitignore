@@ -1,0 +1,14 @@
+# Godot 4+ generated cache
+
+.godot/
+
+# Operating system files
+
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Temporary and backup files
+
+*.tmp
+*.bak

@@ -3,7 +3,7 @@ extends Node
 @export var gate: Node2D
 @export var choice_left_texture: Texture2D
 @export var choice_right_texture: Texture2D
-@export_file("*.tscn") var main_menu_scene: String = ""
+@export_file("*.tscn") var main_menu_scene: String = ""  # no longer used, EndingSequence handles the menu
 @export var after_choice_slides: Array[CutsceneSlide] = []  # plays after the player picks
 
 @onready var pov_camera: Camera2D = get_parent().get_node("POVCamera")
@@ -50,8 +50,4 @@ func on_choice_selected(index: int) -> void:
 
 	await CutscenePlayer.play(after_choice_slides)
 
-	if main_menu_scene == "":
-		print("Level 4: Main menu not linked yet.")
-		return
-
-	get_tree().change_scene_to_file(main_menu_scene)
+	EndingSequence.play_ending()

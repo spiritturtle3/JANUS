@@ -63,7 +63,12 @@ func on_choice_selected(index: int) -> void:
 
 	await CutscenePlayer.play(after_choice_slides)
 
+	Narrator.monologue("Wait! What? Surely not!")
+
 	robot.global_position.x = beyond_sludge_x
 	robot_sprite.play("up")
 	robot_sprite.set_frame_and_progress(1, 0.0)
 	robot_sprite.pause()
+
+	await get_tree().create_timer(3.0).timeout
+	Narrator.notify("Editor: Go over to the Rake Intersection. I heard there's some commotion over there.", 6.0)

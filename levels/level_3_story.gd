@@ -64,8 +64,10 @@ func on_choice_selected(index: int) -> void:
 	choices_visible = false
 	story_completed = true
 	print("Level 3: Choice selected: ", index)
-	
+
 	await CutscenePlayer.play(after_choice_slides)
+
+	Narrator.monologue("NO! This can't be happening!")
 
 	var original_scale: Vector2 = woman.scale
 

@@ -61,3 +61,10 @@ func _switch_to(track: AudioStream) -> void:
 func _start_track(track: AudioStream) -> void:
 	player.stream = track
 	player.play()
+
+
+func fade_out(time: float = 1.5) -> void:
+	if tween:
+		tween.kill()
+	tween = create_tween()
+	tween.tween_property(player, "volume_db", SILENT_DB, time)

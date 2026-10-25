@@ -6,6 +6,7 @@ extends CharacterBody2D
 
 var elapsed_time: float = 0.0
 var has_stopped: bool = false
+var said_intro_line: bool = false
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 
@@ -37,6 +38,10 @@ func _physics_process(delta: float) -> void:
 		sprite.set_frame_and_progress(1, 0.0)
 		sprite.pause()
 		return
+
+	if not said_intro_line:
+		said_intro_line = true
+		Narrator.monologue("Let's try this camera out on that guy.")
 
 	velocity.x = speed
 	velocity.y = 0.0

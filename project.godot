@@ -11,8 +11,27 @@ config_version=5
 [application]
 
 config/name="JANUS"
+config/description="# JANUS
+
+**JANUS** is a 2D top-down cyberpunk narrative game built in Godot, set in a dystopian city where observation and choice shape the story.
+
+Players explore neon-lit streets, use a camera to document events, and make decisions that influence how situations unfold. By combining environmental storytelling, photography mechanics, and branching choices, JANUS explores the relationship between witnessing an event and taking responsibility for what happens next.
+
+## Primary Assets & Credits
+
+* **Cyberpunk City Exterior** — by Flambo19. Used for cyberpunk city environments, streets, and urban scenery.
+  [Cyberpunk City Exterior — Flambo19](https://flambo19.itch.io/cyberpunk-city-exterior?utm_source=chatgpt.com)
+
+* **RPG Main Character** — by Szadi art. Used as a foundation for the game's top-down player character and animations.
+  [RPG Main Character — Szadi art](https://szadiart.itch.io/rpg-main-character?utm_source=chatgpt.com)
+
+**Engine:** Godot
+**Genre:** 2D Narrative / Cyberpunk
+**Core themes:** Observation, responsibility, and consequences.
+"
 run/main_scene="uid://d8087p28xifx"
 config/features=PackedStringArray("4.7", "Forward Plus")
+config/icon="uid://7oyso6071d5a"
 
 [autoload]
 
@@ -24,6 +43,8 @@ LevelTransition="*res://level_transition.gd"
 StoryMemory="*uid://cs6cntg3ipakq"
 CutscenePlayer="*uid://b5aeue1fcfwhn"
 MusicPlayer="*uid://dmi8fei5ag2wa"
+Narrator="*uid://bh2ic4p0g1lgg"
+EndingSequence="*uid://17l1xlmtxelt"
 
 [display]
 
